@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#121212" />
+  <title>SpotClone</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <main id="view-home" class="view active">
+      <header class="top-bar">
+        <h1 id="greeting">Добрый вечер</h1>
+        <button id="btn-import-top" class="icon-btn" title="Добавить треки">＋</button>
+      </header>
+
+      <section class="quick-grid" id="quick-grid"></section>
+
+      <section class="section">
+        <h2>Все треки</h2>
+        <div id="home-track-list" class="track-list"></div>
+      </section>
+    </main>
+
+    <main id="view-search" class="view">
+      <header class="top-bar">
+        <h1>Поиск</h1>
+      </header>
+      <div class="search-box">
+        <input type="search" id="search-input" placeholder="Треки, исполнители..." autocomplete="off" />
+      </div>
+      <div id="search-results" class="track-list"></div>
+    </main>
+
+    <main id="view-library" class="view">
+      <header class="top-bar">
+        <h1>Моя медиатека</h1>
+        <button id="btn-add-url" class="pill-btn">+ По ссылке</button>
+      </header>
+      <div class="import-banner" id="drop-zone">
+        <p>Загрузить MP3 / M4A из «Файлов»</p>
+        <button id="btn-import-files" class="primary-btn">Выбрать файлы</button>
+        <input type="file" id="file-input" accept="audio/*" multiple hidden />
+      </div>
+      <div id="library-track-list" class="track-list"></div>
+    </main>
+
+    <div id="mini-player" class="mini-player hidden">
+      <div class="mini-progress-bar"><div id="mini-progress-fill"></div></div>
+      <div class="mini-content" id="mini-open-full">
+        <div class="mini-cover" id="mini-cover">♪</div>
+        <div class="mini-info">
+          <div class="mini-title" id="mini-title">Не выбрано</div>
+          <div class="mini-artist" id="mini-artist">—</div>
+        </div>
+        <button id="mini-play-btn" class="mini-control" aria-label="Play/Pause">▶</button>
+      </div>
+    </div>
+
+    <nav class="tab-bar">
+      <button class="tab active" data-target="view-home">
+        <span class="tab-icon">⌂</span>
+        <span>Главная</span>
+      </button>
+      <button class="tab" data-target="view-search">
+        <span class="tab-icon">⌕</span>
+        <span>Поиск</span>
+      </button>
+      <button class="tab" data-target="view-library">
+        <span class="tab-icon">▤</span>
+        <span>Медиатека</span>
+      </button>
+    </nav>
+
+    <div id="full-player" class="full-player">
+      <div class="full-header">
+        <button id="btn-close-full" class="icon-btn">⌄</button>
+        <span class="full-context">СЕЙЧАС ИГРАЕТ</span>
+        <button id="btn-delete-track" class="icon-btn danger" title="Удалить трек">🗑</button>
+      </div>
+
+      <div class="full-cover-wrap">
+        <div class="full-cover" id="full-cover">♪</div>
+      </div>
+
+      <div class="full-meta">
+        <div class="full-title" id="full-title">Название трека</div>
+        <div class="full-artist" id="full-artist">Исполнитель</div>
+      </div>
+
+      <div class="scrubber-wrap">
+        <input type="range" id="seek-slider" min="0" max="100" value="0" step="0.1" />
+        <div class="time-row">
+          <span id="time-current">0:00</span>
+          <span id="time-total">0:00</span>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <button id="btn-shuffle" class="ctrl-sub">⇄</button>
+        <button id="btn-prev" class="ctrl-main">⏮</button>
+        <button id="btn-play-pause" class="ctrl-play">▶</button>
+        <button id="btn-next" class="ctrl-main">⏭</button>
+        <button id="btn-repeat" class="ctrl-sub">↻</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio-engine" preload="metadata" playsinline></audio>
+  <script src="app.js"></script>
+</body>
+</html>
