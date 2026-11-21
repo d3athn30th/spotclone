@@ -1,0 +1,17 @@
+{
+  "name": "SpotClone Player",
+  "short_name": "SpotClone",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%231DB954'/%3E%3Cpath d='M368 232c-64-38-170-42-231-23-10 3-20-3-23-12-3-10 3-20 12-23 70-21 187-17 261 27 9 5 12 17 6 25-5 9-16 11-25 6zm-2 55c-5 7-14 10-21 5-53-33-134-42-197-23-8 2-17-2-19-10-2-8 2-17 10-19 72-22 161-11 222 26 7 4 10 14 5 21zm-22 53c-4 6-11 8-17 4-46-28-104-34-172-19-7 2-13-3-15-9-2-7 3-13 9-15 75-17 139-10 190 21 6 4 8 12 5 18z' fill='%23121212'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
